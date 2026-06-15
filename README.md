@@ -1,80 +1,75 @@
-# Academic Project Page Template
+# CASSM Project Page
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+Static project page for:
 
-A clean, responsive template for academic project pages.
+**Computation-Aware Kalman Filtering with Model Selection for Neural Dynamics**
 
+JR Huml, Jonathan Wenger, John P. Cunningham
 
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+Accepted to ProbNum 2026: The 2nd International Conference on Probabilistic Numerics
 
+Links:
 
+- Paper: https://arxiv.org/abs/2606.01468
+- Code: https://github.com/jonathanhuml/cassm
+- Conference: https://probnum2026.github.io/
 
-## Start using the template
-To start using the template click on `Use this Template`.
+## Local Preview
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+Open `index.html` directly in a browser. The page is static and does not require a build step.
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+## Custom Domain
 
-## What's New
+This repo includes a `CNAME` file with:
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+```text
+cassm-torch.com
+```
 
-## Components
+Configure GitHub Pages for this project repository, not the `jonathanhuml.github.io` repository. Keeping the custom domain on this repo will not replace or delete the existing homepage at `jonathanhuml.github.io`.
 
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
+For the apex domain, configure the Pages custom domain as:
 
-## Customization
+```text
+cassm-torch.com
+```
 
-The HTML file has TODO comments showing what to replace:
+At the DNS provider, add these GitHub Pages apex `A` records for `cassm-torch.com`:
 
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
+```text
+@  A  185.199.108.153
+@  A  185.199.109.153
+@  A  185.199.110.153
+@  A  185.199.111.153
+```
 
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
+Optionally, add a `www` CNAME record that points to:
 
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
+```text
+www  CNAME  jonathanhuml.github.io
+```
 
-## Tips
+If the domain still has a "Squarespace Defaults" preset, remove that preset first. In particular, do not keep the Squarespace `A` records pointing to `198.49.23.145`, `198.185.159.144`, `198.185.159.145`, or `198.49.23.144`, and do not keep `www` pointed at `ext-sq.squarespace.com`.
 
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
+Then enable "Enforce HTTPS" in the Pages settings after GitHub provisions the certificate. If GitHub warns that the domain is already configured elsewhere, remove it from the other repo before adding it here.
+
+## Files
+
+- `index.html`: page content, paper metadata, and citation
+- `static/css/index.css`: page layout and visual design
+- `static/js/index.js`: copy button, scroll button, and Lorenz animation
+- `static/images/columbia-logo.png`: source logo for generated favicon assets
+- `static/images/favicon.png`, `static/images/favicon.ico`, `static/images/apple-touch-icon.png`: browser icons generated from the logo
+- `static/images/lorenz_dynamics.png`: local visual fallback/social asset
+- `static/images/social_preview.png`: 1200x630 Open Graph/Twitter preview
+- `scripts/generate_social_preview.py`: reproducible preview image generator
+- `scripts/generate_favicon.py`: reproducible favicon generator
+- `CNAME`: proposed GitHub Pages custom domain
 
 ## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+
+This page was adapted from the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), which was adopted from the [Nerfies](https://nerfies.github.io/) project page.
 
 ## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+The page source inherits the template license: [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
