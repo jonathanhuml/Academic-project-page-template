@@ -430,6 +430,15 @@ code {
   margin-bottom: 1rem;
 }
 
+#bibtex-code {
+  color: var(--ink) !important;
+  border-color: var(--line);
+}
+
+#bibtex-code code {
+  color: inherit !important;
+}
+
 .copy-bibtex-btn {
   display: inline-flex;
   align-items: center;
